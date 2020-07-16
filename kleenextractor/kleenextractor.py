@@ -47,12 +47,10 @@ class KleenExtractor:
     def extract_folder(self):
         self.create_tables()
         path_source = self.path_source
-        print(path_source)
         extract = glob(path_source, recursive=True)
         for entry in extract:
             self.insert_in_db(entry, path.isdir(entry))
-        self.get_all(True)
-        self.get_all(False)
+        self.conn.commit()
 
 
 kleenextractor = KleenExtractor()
