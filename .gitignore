@@ -130,6 +130,7 @@ dmypy.json
 
 # Test file
 test.py
+extract.db
 
 # Pycharm
 .idea/

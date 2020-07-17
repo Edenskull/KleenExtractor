@@ -29,7 +29,8 @@ class KleenExtractor:
         parent = "\\".join(parent)
         cursor = self.conn.cursor()
         if isdir:
-            cursor.execute(KleenExtractorDefinition.INSERT_IN_FOLDER.value, (current_path, name, parent))
+            if name != "":
+                cursor.execute(KleenExtractorDefinition.INSERT_IN_FOLDER.value, (current_path, name, parent))
         else:
             cursor.execute(KleenExtractorDefinition.INSERT_IN_FILE.value, (current_path, name, parent))
         cursor.close()
